@@ -17,5 +17,5 @@ catch(Exception $e) {
   echo 'Message: ' .$e->getMessage();
 
 }
-// var_dump($res);
+var_dump($res);
 ?>
