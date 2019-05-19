@@ -48,8 +48,6 @@
 		}
 	}
 
-
-
 	$fb = new FacebookAdapter();
 	/* 
 	This is work everyehere , No matter, if facebook Changes his API, You have to Only Change in Adapte Class
