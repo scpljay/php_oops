@@ -1,2 +1,4 @@
 # php_oops
-PHP OOPS Tutorial
+PHP Design Pattern
+PHP OOPS Tutorial,
+Imagecrop Function of PHP
