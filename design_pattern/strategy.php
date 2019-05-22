@@ -13,16 +13,16 @@
 	 */
 	class bmwCouponGenerator implements carCouponGenerator
 	{
-		$discount = 0;
-		$isHighSeason = false;
-		$bigStock  = true;
+		private $discount = 0;
+		private $isHighSeason = false;
+		private $bigStock  = false;
 		
 		public function addSeasonDiscount()
 		{
 			if (!$this->isHighSeason) {
-				$this->discount +=5;
+				$this->discount +=35;
 			} else {
-				$this->discount +=0;
+				$this->discount +=10;
 			}
 			return $this->discount;
 		}
@@ -30,24 +30,26 @@
 		public function addStockDiscount()
 		{
 			if (!$this->bigStock) {
-				$this->discount +=5;
+				$this->discount +=25;
+			} else {
+				$this->discount +=20;
 			} 
-			return $this->discount+=0;	
+			return $this->discount;	
 		}
 	}
 
 	class audiCouponGenerator implements carCouponGenerator
 	{
-		$discount = 0;
-		$isHighSeason = false;
-		$bigStock  = true;
+		private $discount = 0;
+		private $isHighSeason = false;
+		private $bigStock  = false;
 		
 		public function addSeasonDiscount()
 		{
 			if (!$this->isHighSeason) {
 				$this->discount +=15;
 			} else {
-				$this->discount +=0;
+				$this->discount +=10;
 			}
 			return $this->discount;
 		}
@@ -56,8 +58,10 @@
 		{
 			if (!$this->bigStock) {
 				$this->discount +=5;
-			} 
-			return $this->discount+=0;	
+			} else {
+				$this->discount+=10;	
+			}
+			return $this->discount;	
 		}
 	}
 
@@ -73,9 +77,9 @@
 		{
 			$this->carObj = new bmwCouponGenerator;
 		}
-		else if($car == "mercedes")
+		else if($car == "audi")
 		{
-			$this->carObj = new mercedesCouponGenerator;
+			$this->carObj = new audiCouponGenerator;
 		}
 
 		return $this->carObj;
@@ -94,4 +98,9 @@
 	$car = "bmw";
 	$obj1 = new couponGenerator($car);
 	echo $obj1->getCoupon();
+	echo "<hr/>";
+	$car = "audi";
+	$obj1 = new couponGenerator($car);
+	echo $obj1->getCoupon();
+	
 ?>
